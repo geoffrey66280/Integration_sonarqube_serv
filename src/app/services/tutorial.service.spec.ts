@@ -1,5 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-
+import {
+  HttpClientTestingModule,
+  HttpTestingController,
+} from '@angular/common/http/testing';
 import { TutorialService } from './tutorial.service';
 
 describe('TutorialService', () => {
