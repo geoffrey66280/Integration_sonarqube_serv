@@ -16,7 +16,7 @@ jobs:
       - name: Run Tests
         run: |
           npm install
-          npm testing
+          npm test
 
       - uses: actions/checkout@v2
         with:
