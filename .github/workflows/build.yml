@@ -20,6 +20,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Test SSH connectivity
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            echo "SSH connection successful"
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.4
         with:
