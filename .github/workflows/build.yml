@@ -20,7 +20,7 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
-          host: 54.39.17.154
+          host: 54.39.16.154
           username: ynov
           key: ${{ secrets.SSH_KEY }}
           script: |
