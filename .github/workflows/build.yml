@@ -23,8 +23,8 @@ jobs:
       - name: Test SSH connectivity
         uses: appleboy/ssh-action@v0.1.4
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: 54.39.16.154
+          username: ynov
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
