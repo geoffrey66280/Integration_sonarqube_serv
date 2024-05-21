@@ -9,20 +9,24 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 20
+
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.4
         with:
           host: 54.39.16.154
           username: ynov
           key: ${{ secrets.SSH_KEY }}
+          port: 22
           script: |
             cd /home/ynov/grp2/front
             git pull
