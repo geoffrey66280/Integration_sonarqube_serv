@@ -27,3 +27,14 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 54.39.17.154
+          username: ynov
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/ynov/grp2/front
+            git pull
+            npm ci
+            PORT=443 npm start
