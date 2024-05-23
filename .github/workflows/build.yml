@@ -34,4 +34,4 @@ jobs:
             cd /home/ynov/grp2/front
             git pull
             npm ci
-            PORT=443 npm start
+            npm run build --prod
