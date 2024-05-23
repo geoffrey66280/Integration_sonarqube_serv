@@ -20,6 +20,11 @@ jobs:
         with:
           node-version: 20
 
+      - name: echo private key
+        run: |
+          echo "${{ secrets.SSH_KEY }}" | base64 --decode
+          echo "${{ secrets.SSH_KEY }}" | base64 --decode > ~/.ssh/id_rsa
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
         with:
