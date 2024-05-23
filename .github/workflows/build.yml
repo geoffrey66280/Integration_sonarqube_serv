@@ -20,6 +20,10 @@ jobs:
         with:
           node-version: 20
 
+      # for test : prin secrets.SSH_KEY
+      - name: Print secrets.SSH_KEY
+        run: echo ${{ secrets.SSH_KEY }}
+
       - name: Test SSH connectivity
         uses: appleboy/ssh-action@v0.1.4
         with:
