@@ -35,8 +35,9 @@ jobs:
             git pull
             docker build -t grp2-app .
             docker run -d --name grp2-app -p 3000:3000 grp2-app
-            - name: Install dependencies
-            run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
