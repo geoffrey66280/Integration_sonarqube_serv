@@ -28,7 +28,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
-            echo "SSH connection successful"
+            echo "SSH script started successful!"
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.4
