@@ -26,9 +26,11 @@ jobs:
           debug: true
           host: 54.39.16.154
           username: ynov
-          key: ${{ secrets.SSH_KEY }} # SSH private key
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
+            sudo apt-get update
+            sudo apt-get install -y nodejs npm
             cd /home/ynov/grp2/front
             git pull
             npm ci
