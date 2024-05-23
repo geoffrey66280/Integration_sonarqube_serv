@@ -1,14 +1,13 @@
-# Build stage
-FROM node:alpine AS build
-WORKDIR /usr/src/app
-COPY . .
-RUN npm install -g @angular/cli
-RUN npm install
-RUN ng build --prod
+FROM node:alpine
 
-# Run stage
-FROM nginx:alpine
-COPY --from=build /usr/src/app/dist /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 443
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+
+RUN npm install -g @angular/cli
+
+EXPOSE 3000
+
+RUN npm install
+
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "3000"]
